@@ -1,32 +1,15 @@
-# YouTube Link
+# S3 Bucket Setup
 
-## Project 1 Part 3 Video
+## S3 Bucket Information
 
-YouTube video: [Paste your YouTube link here]
-
-The video shows:
-
-- The Part 3 GitHub repository
-- The AWS S3 bucket
-- The uploaded website files
-- The S3 hosting settings
-- The deployed website URL
-- The Home, About, Contact, and App pages
-- Website interactions
-- Problems encountered and solutions
-
-# Implementing AWS S3
-
-## Project Information
-
-- GitHub repository: [https://github.com/AlexaGA9/Project1_part3.git]
 - S3 bucket name: [project1-part3-2026]
 - AWS Region: [us-west-2]
 - Deployed website URL: [http://project1-part3-2026.s3-website-us-west-2.amazonaws.com/]
+- GitHub repository: [https://github.com/AlexaGA9/Project1_part3.git]
 
-## 1. S3 Bucket Creation
+## 1. Creating the S3 Bucket
 
-I created an S3 bucket named `project1-part3-2026` in the `us-west-2` region to host the website.
+Created an S3 bucket named `project1-part3-2026` in the `us-west-2` region to host the website.
 
 [Screenshot of the S3 bucket name and region]
 <img width="716" height="85" alt="Screenshot 2026-10-05 at 7 46 32 PM" src="https://github.com/user-attachments/assets/c19b8dcd-15fc-4a7c-b240-2cabbc7a6ade" />
@@ -40,6 +23,7 @@ The following website files were uploaded to the S3 bucket:
 - CSS files
 - JavaScript files
 - React files
+- Images
 - Supporting files
 
 [Screenshot showing the uploaded files inside the bucket]
@@ -49,10 +33,6 @@ The following website files were uploaded to the S3 bucket:
 ## 3. Static Website Hosting
 
 Static website hosting was enabled for the bucket.
-
-- Index document: `index.html`
-- Error document: `[enter your error document]`
-- Website endpoint: [paste URL]
 
 [Screenshot of the Static Website Hosting settings]
 <img width="884" height="396" alt="Screenshot 2026-10-05 at 8 08 16 PM" src="https://github.com/user-attachments/assets/10e1f1f0-9ad0-4ee9-9da3-56713a46e400" />
@@ -67,8 +47,24 @@ The website is available at:
 [Screenshot of the deployed website with the URL visible]
 <img width="1208" height="1081" alt="Screenshot 2026-10-05 at 8 11 00 PM" src="https://github.com/user-attachments/assets/c98c5c90-8cdb-45a4-8309-9b7929f4dbc6" />
 
+## 5. Problems and Solutions
 
-## 5. Page Testing
+Although no major problems were encountered during the S3 deployment, we did stumble upon some small hiccups.
+
+### Problem 1: AWS CLI Not on PATH
+
+- Problem: AWS CLI installed successfully, but the shell could not find the aws command.
+- Solution: Updated the deployment script to use ~/.local/bin/aws when AWS CLI isn’t on PATH. The site then built and uploaded successfully.
+
+
+### Problem 2: AWS Sign-In Profile Conflict
+
+- Problem: The default AWS profile already contained access key credentials, so aws login could not use that profile. A separate profile also needed a region and browser authorization.
+- Solution: Kept the existing profile unchanged and used its authenticated AWS session after confirming the account. Deployed the site to the S3 bucket in us-west-2.
+
+## 6. Page Testing/Verification
+
+The deployed website was tested to confirm that the main pages were working.
 
 | Page | Result |
 |---|---|
@@ -96,24 +92,8 @@ The website is available at:
 <img width="1108" height="792" alt="LOGIN" src="https://github.com/user-attachments/assets/bcf68fe8-0075-41aa-84bb-353bdfd5518d" />
 
 
-## 6. Problems and Solutions
-
-Although no major problems were encountered during the S3 deployment, we did stumble upon some small hiccups.
-
-### Problem 1: AWS CLI Not on PATH
-
-- Problem: AWS CLI installed successfully, but the shell could not find the aws command.
-- Solution: Updated the deployment script to use ~/.local/bin/aws when AWS CLI isn’t on PATH. The site then built and uploaded successfully.
-
-
-### Problem 2: AWS Sign-In Profile Conflict
-
-- Problem: The default AWS profile already contained access key credentials, so aws login could not use that profile. A separate profile also needed a region and browser authorization.
-- Solution: Kept the existing profile unchanged and used its authenticated AWS session after confirming the account. Deployed the site to the S3 bucket in us-west-2.
-
-
 ## 7. Cost Discussion
 
-This project uses a small amount of S3 storage and is expected to have very little traffic. The expected cost should be low, but AWS can charge for storage, requests, and data transfer. When you create a new AWS Free Tier account, you get $100 in credits immediately. As you explore key services, you can earn up to $100 more. The cost is little to none since a new account was created to implement it.
+This project uses a small amount of S3 storage so the expected cost should be low, but AWS can charge for storage, requests, and data transfer. When you create a new AWS Free Tier account, you get $100 in credits immediately. As you explore key services, you can earn up to $100 more. The cost is little to none since a new account was created to implement it.
 
 I checked the AWS S3 pricing information here: https://aws.amazon.com/s3/pricing/
