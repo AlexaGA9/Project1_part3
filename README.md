@@ -198,24 +198,6 @@ docker run -p 8080:80 fitted
 
 Then visit `http://localhost:8080`.
 
-## Project 1 Part 3: Amazon S3 Deployment
-
-The production build can also be hosted by Amazon S3 static website hosting.
-Install and configure AWS CLI v2, then deploy with:
-
-```bash
-npm run deploy:s3 -- <globally-unique-bucket-name> <aws-region>
-```
-
-This direct S3 website endpoint is HTTP and makes site objects publicly
-readable. The current live site is [project1-part3-2026](http://project1-part3-2026.s3-website-us-west-2.amazonaws.com/).
-The script prints the website URL when deployment succeeds.
-Use CloudFront if HTTPS and a private S3 bucket are required.
-
-S3 costs depend on stored build size, visitor requests, and data transfer.
-This small static site has no continuously running server; check the
-[AWS Pricing Calculator](https://calculator.aws/) and [S3 pricing](https://aws.amazon.com/s3/pricing/)
-for current region-specific charges before deployment.
 
 ## Future Project 2 Architecture
 
