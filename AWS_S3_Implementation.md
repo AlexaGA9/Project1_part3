@@ -79,19 +79,20 @@ The website is available at:
 | Login page | [Working] |
 
 [Screenshots of the pages with the deployed URL visible]
-###HOME PAGE
+
+##HOME PAGE
 <img width="1110" height="872" alt="HOME" src="https://github.com/user-attachments/assets/d56578a8-52d8-4e6b-a7a7-c5cd43e3fb44" />
 
-###ABOUT PAGE
+##ABOUT PAGE
 <img width="1114" height="873" alt="ABOUT" src="https://github.com/user-attachments/assets/d9f27cba-ce40-4541-aa8c-4a3f463cb4d3" />
 
-###CONTACT PAGE
+##CONTACT PAGE
 <img width="1113" height="1075" alt="CONTACT" src="https://github.com/user-attachments/assets/e83f0ddc-4d53-4b76-8482-fe134df30a4b" />
 
-###APP PAGE
+##APP PAGE
 <img width="1111" height="1074" alt="APP" src="https://github.com/user-attachments/assets/407440fd-b06d-403e-9197-2d95e9ac2ae6" />
 
-###LOGIN PAGE
+##LOGIN PAGE
 <img width="1108" height="792" alt="LOGIN" src="https://github.com/user-attachments/assets/bcf68fe8-0075-41aa-84bb-353bdfd5518d" />
 
 
@@ -99,13 +100,13 @@ The website is available at:
 
 Although no major problems were encountered during the S3 deployment, we did stumble upon some small hiccups.
 
-### Problem 1: [AWS CLI Not on PATH]
+### Problem 1: AWS CLI Not on PATH
 
 - Problem: AWS CLI installed successfully, but the shell could not find the aws command.
 - Solution: Updated the deployment script to use ~/.local/bin/aws when AWS CLI isn’t on PATH. The site then built and uploaded successfully.
 
 
-### Problem 2: [AWS Sign-In Profile Conflict]
+### Problem 2: AWS Sign-In Profile Conflict
 
 - Problem: The default AWS profile already contained access key credentials, so aws login could not use that profile. A separate profile also needed a region and browser authorization.
 - Solution: Kept the existing profile unchanged and used its authenticated AWS session after confirming the account. Deployed the site to the S3 bucket in us-west-2.
