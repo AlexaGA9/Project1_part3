@@ -111,3 +111,9 @@ Although no major problems were encountered during the S3 deployment, we did stu
 - Problem: The default AWS profile already contained access key credentials, so aws login could not use that profile. A separate profile also needed a region and browser authorization.
 - Solution: Kept the existing profile unchanged and used its authenticated AWS session after confirming the account. Deployed the site to the S3 bucket in us-west-2.
 
+
+## 7. Cost Discussion
+
+This project uses a small amount of S3 storage and is expected to have very little traffic. The expected cost should be low, but AWS can charge for storage, requests, and data transfer. When you create a new AWS Free Tier account, you get $100 in credits immediately. As you explore key services, you can earn up to $100 more. The cost is little to none since a new account was created to implement it.
+
+I checked the AWS S3 pricing information here: https://aws.amazon.com/s3/pricing/
